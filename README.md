@@ -1,6 +1,10 @@
-Simple straightforward page navigation titles.
+Simple straightforward page navigation titles. 
 
 This module requires [Angular 2 router](https://angular.io/docs/ts/latest/guide/router.html).
+
+## Demo
+
+https://alex-craiu.github.io/angular-demo/
 
 ## Installation
 
