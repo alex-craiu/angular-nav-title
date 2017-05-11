@@ -8,7 +8,7 @@ This module requires [Angular 2 router](https://angular.io/docs/ts/latest/guide/
 $ npm install --save angular-nav-title
 ```
 
-## Getting started
+## Usage
 
 1. Import the module
 
