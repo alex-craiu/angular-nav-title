@@ -50,7 +50,7 @@ export class NavTitleComponent implements OnInit {
   // checks if the data.navTitle of the route is actually propagated from the parent route
   private _isPropagatedData(
     childRoute: ActivatedRouteSnapshot,
-    parentRoute: ActivatedRouteSnapshot) {
+    parentRoute: ActivatedRouteSnapshot | null) {
     return parentRoute && parentRoute.data[this.dataParam] === childRoute.data[this.dataParam];
   }
 
