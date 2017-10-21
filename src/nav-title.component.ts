@@ -41,7 +41,7 @@ export class NavTitleComponent implements OnInit {
   }
 
   private getLastChildRoute(activatedSnapshot: ActivatedRouteSnapshot): ActivatedRouteSnapshot {
-    let children = activatedSnapshot.children;
+    const children = activatedSnapshot.children;
     if (children.length === 0) { return activatedSnapshot; }
     return this.getLastChildRoute(children[0]);
   }
@@ -54,10 +54,10 @@ export class NavTitleComponent implements OnInit {
   }
 
   private getNavTitles(activatedSnapshot: ActivatedRouteSnapshot): NavTitle[] {
-    let pathFromRoute = this.getLastChildRoute(activatedSnapshot).pathFromRoot;
-    let titles: NavTitle[] = [];
+    const pathFromRoute = this.getLastChildRoute(activatedSnapshot).pathFromRoot;
+    const titles: NavTitle[] = [];
 
-    for (let route of pathFromRoute) {
+    for (const route of pathFromRoute) {
       if (route.data.hasOwnProperty(this.dataParam)
         && typeof route.data[this.dataParam] === 'string'
         && !this._isPropagatedData(route, route.parent)) {
