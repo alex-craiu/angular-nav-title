@@ -1,6 +1,6 @@
 {
   "name": "angular-nav-title",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "Simple page navigation titles",
   "main": "bundles/angular-nav-title.umd.js",
   "module": "dist/index.js",
