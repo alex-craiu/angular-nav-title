@@ -35,6 +35,7 @@ export class NavTitleComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.titles = this.getNavTitles(this.route.snapshot);
     this.router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(event => {
