@@ -3,8 +3,7 @@ import {
   Router,
   ActivatedRoute,
   ActivatedRouteSnapshot,
-  NavigationEnd,
-  PRIMARY_OUTLET
+  NavigationEnd
 } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
