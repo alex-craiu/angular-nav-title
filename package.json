@@ -5,6 +5,7 @@
   "main": "dist/bundles/angular-nav-title.umd.js",
   "module": "dist/index.js",
   "scripts": {
+    "lint": "ng lint --type-check",
     "clean": "rimraf dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",
     "postclean": "rimraf ./*.ngsummary.json ./*.ngfactory.ts src/*.ngsummary.json src/*.ngfactory.ts",
     "bundling": "rollup -c",
