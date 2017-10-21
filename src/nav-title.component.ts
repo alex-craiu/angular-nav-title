@@ -31,14 +31,14 @@ export class NavTitleComponent implements OnInit {
   titles: NavTitle[] = [];
 
   constructor(
-    private activatedRouteSnapshot: ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
     this.router.events
       .filter(event => event instanceof NavigationEnd)
       .subscribe(event => {
-        this.titles = this.getNavTitles(this.activatedRouteSnapshot.snapshot);
+        this.titles = this.getNavTitles(this.route.snapshot);
       });
   }
 
