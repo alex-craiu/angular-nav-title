@@ -8,8 +8,8 @@ import {
 } from '@angular/router';
 import 'rxjs/add/operator/filter';
 
-// default 
-const ROUTE_DATA_PARAM: string = 'navTitle';
+// default
+const ROUTE_DATA_PARAM = 'navTitle';
 
 export class NavTitle {
   label: string;
@@ -25,7 +25,7 @@ export class NavTitle {
 styles: ['a{text-decoration:none;}']
 })
 export class NavTitleComponent implements OnInit {
-  @Input() separator: string = '–';
+  @Input() separator = '–';
   @Input() dataParam: string = ROUTE_DATA_PARAM;
 
   titles: NavTitle[] = [];
@@ -38,21 +38,19 @@ export class NavTitleComponent implements OnInit {
     this.titles = this.getNavTitles(this.route.snapshot);
     this.router.events
       .filter(event => event instanceof NavigationEnd)
-      .subscribe(event => {
-        this.titles = this.getNavTitles(this.route.snapshot);
-      });
+      .subscribe(event => { this.titles = this.getNavTitles(this.route.snapshot); });
   }
 
   private getLastChildRoute(activatedSnapshot: ActivatedRouteSnapshot): ActivatedRouteSnapshot {
     let children = activatedSnapshot.children;
-    if (children.length === 0) {
-      return activatedSnapshot;
-    }
-    return this.getLastChildRoute(children[0])
+    if (children.length === 0) { return activatedSnapshot; }
+    return this.getLastChildRoute(children[0]);
   }
 
   // checks if the data.navTitle of the route is actually propagated from the parent route
-  private isPropagatedData(childRoute: ActivatedRouteSnapshot, parentRoute: ActivatedRouteSnapshot) {
+  private _isPropagatedData(
+    childRoute: ActivatedRouteSnapshot,
+    parentRoute: ActivatedRouteSnapshot) {
     return parentRoute && parentRoute.data[this.dataParam] === childRoute.data[this.dataParam];
   }
 
@@ -61,11 +59,14 @@ export class NavTitleComponent implements OnInit {
     let titles: NavTitle[] = [];
 
     for (let route of pathFromRoute) {
-      if (route.data.hasOwnProperty(this.dataParam) && typeof route.data[this.dataParam] === 'string' && !this.isPropagatedData(route, route.parent)) {
-        titles.push({
-          label: route.data[this.dataParam],
-          url: route.pathFromRoot.filter(r => r.url.length > 0).map(r => r.url[0]).join('/')
-        });
+      if (route.data.hasOwnProperty(this.dataParam)
+        && typeof route.data[this.dataParam] === 'string'
+        && !this._isPropagatedData(route, route.parent)) {
+
+          titles.push({
+            label: route.data[this.dataParam],
+            url: route.pathFromRoot.filter(r => r.url.length > 0).map(r => r.url[0]).join('/')
+          });
       }
     }
     return titles;
