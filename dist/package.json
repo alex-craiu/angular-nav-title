@@ -1,6 +1,6 @@
 {
   "name": "angular-nav-title",
-  "version": "1.2.1",
+  "version": "1.2.8",
   "description": "Simple page navigation titles",
   "main": "bundles/angular-nav-title.umd.js",
   "module": "dist/index.js",
@@ -9,6 +9,7 @@
   "keywords": [
     "angular",
     "angular2",
+    "angular4",
     "page navigation title",
     "breadcrumb"
   ],
