@@ -1,5 +1,6 @@
 {
   "name": "angular-nav-title-dev",
+  "version": "1.2.1",
   "description": "Dev package for angular-nav-title",
   "main": "dist/bundles/angular-nav-title.umd.js",
   "module": "dist/index.js",
